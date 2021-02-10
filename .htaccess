@@ -41,8 +41,8 @@ AddHandler server-parsed .shtml .html .htm
 # AddType text/html .shtml .html
 # AddHandler server-parsed .shtml .html
 Options +ExecCGI
-RemoveHandler .html .htm
-AddType application/x-httpd-php .php .htm .html .phtml
+#RemoveHandler .html .htm
+#AddType application/x-httpd-php .php .htm .html .phtml
 
 # php_value session.gc_maxlifetime 86400
 # php_value session.cookie_lifetime 0
