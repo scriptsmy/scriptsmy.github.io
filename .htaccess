@@ -1,0 +1,73 @@
+RewriteEngine On
+RewriteBase /
+
+# AddHandler cgi-script .py
+# Options +ExecCGI
+
+# редирект с www на без www
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# Спрятать index.html
+RewriteCond %{THE_REQUEST} /index\.html(/(.*?))? [NC]
+RewriteRule ^(.*?)index\.html(/(.*?))?$ /$1$2 [L,R=301,NC,NE]
+
+# Спрятать index.php
+RewriteCond %{THE_REQUEST} /index\.php(/(.*?))? [NC]
+RewriteRule ^(.*?)index\.php(/(.*?))?$ /$1$2 [L,R=301,NC,NE]
+
+# Вырезать (спрятать) папку _service 1-й этап рабочего варианта
+RewriteCond %{DOCUMENT_ROOT}/_service/$1 -f
+RewriteRule ^(.*)$ _service/$1 [L,QSA]
+# 2-й этап
+RewriteCond %{ENV:REDIRECT_STATUS} ^$
+RewriteRule ^_service/(.+)$ http://host1826115.hostland.pro//$1 [R=301,L]
+# 3-й этап
+RewriteRule ^comment /_service/comment/index.html [L]
+
+SSILegacyExprParser on
+DefaultLanguage ru
+AddDefaultCharset UTF-8
+php_value default_charset "UTF-8"
+
+# AddType text/html .shtml .html .php
+# AddHandler server-parsed .shtml .html .php
+
+AddType text/html .shtml .html .htm
+AddOutputFilter INCLUDES .html .htm .ssi
+AddHandler server-parsed .shtml .html .htm
+
+# Options +Includes 
+# AddType text/html .shtml .html
+# AddHandler server-parsed .shtml .html
+Options +ExecCGI
+RemoveHandler .html .htm
+AddType application/x-httpd-php .php .htm .html .phtml
+
+# php_value session.gc_maxlifetime 86400
+# php_value session.cookie_lifetime 0
+php_value session.auto_start 1
+# php_value session.cookie_domain host1826115.hostland.pro
+# php_value session.use_only_cookies 0
+# php_value session.gc_divisor 100 100
+# php_flag session.use_only_cookies on
+# php_value session.use_cookies 1
+# php_value session.use_trans_sid 1
+# php_value session.gc_maxlifetime 86400
+# php_value session.cookie_lifetime 0
+Options -Indexes
+
+# Action php-cgi /cgi-bin/php.cgi
+# AddHandler php-cgi .php .php3 .phtml
+
+ErrorDocument 400 /errors.php
+ErrorDocument 403 /errors.php
+ErrorDocument 404 /errors.php
+ErrorDocument 405 /errors.php
+ErrorDocument 408 /errors.php
+ErrorDocument 500 /errors.php
+ErrorDocument 502 /errors.php
+ErrorDocument 504 /errors.php
+
+# RewriteEngine Off
+AddHandler cgi-script .pl .py
