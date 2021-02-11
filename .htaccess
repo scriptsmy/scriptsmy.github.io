@@ -1,0 +1,6 @@
+AddHandler server-parsed .shtml .html
+Options +ExecCGI
+RemoveHandler .html .htm
+AddType application/x-httpd-php .php .htm .html .phtml
+php_value session.auto_start 1
+Options -Indexes
