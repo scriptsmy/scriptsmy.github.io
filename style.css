@@ -1,0 +1,297 @@
+/* Правила для экранной версии представления данных */
+@media screen {
+  /* Общие установки для страницы */
+  html, body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
+  body {
+    color: #000;
+    background: #999 url(images/bg_page.gif) scroll;
+    font-family: Georgia, "Times New Roman", Times, serif;
+  }
+
+  /* "Подложка" для всей страницы */
+  #carrier {
+    width: 100%;
+    background: #fff;
+  }
+
+  /* Шрифт для "шапки", меню навигации, заголовков второго уровня в основном тексте и "подвала" */
+  #header, #menu, #text h2, #footer {
+    font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+  }
+
+  /* Общие правила оформления "шапки" и "подвала" */
+  #header, #footer p {
+    color: #fff;
+    background: #369;
+    padding: 10px 20px;
+    margin: 0px;
+  }
+
+  /* Представление "шапки" */
+  #header {
+    font-size: 250%;
+    border-bottom: solid 5px #69c;
+  }
+
+  /* На внутренних страницах сайта титульная надпись в "шапке"
+     выступает в качестве ссылки на главную страницу. Для этой
+     ссылки задаются такие правила, чтобы она визуально была
+     неотличима от заголовка без ссылки */
+  #header a:link, #header a:visited, #header a:hover, #header a:active {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  /* "Подложка" для навигационного меню. Ширина области навигации
+      постоянна во всех браузерах и составляет 200 пикселей */
+  #menucarrier
+  {
+    width: 200px;
+    margin-bottom: 20px;
+    float: left;
+    background: #fff0cc url(images/bg_menu.gif) center repeat-y scroll;
+  }
+
+  /* Собственно блок навигации */
+  #menu {
+    font-size: 18px;
+    text-align: center;
+    padding: 10px 20px;
+    border-style: none dotted dotted none;
+    border-width: 0px 2px 2px 0px;
+    border-color: #c00;
+  }
+
+  /* Хитрые игры со свойствами margin и padding имеют целью
+     полную совместимость с IE5. Блок навигации отображается в IE5
+     так же, как и в более современных браузерах. "Кнопки"
+     навигационного меню расположены на расстоянии 20 пикселей
+     друг от друга и от границ навигационного блока по вертикали */
+  #menu p {
+    padding: 10px 0px;
+    margin: 0px;
+  }
+
+  /* При помощи свойства display мы превращаем гиперссылки и
+     контейнер <span>...</span>, размещенные в блоке навигации, из
+     внутристрочных элементов в блочные, что дает нам возможность
+     указать ширину при помощи свойства width */
+  #menu a, #menu span
+  {
+    display: block;
+    width: 154px;
+    margin: auto;
+  }
+
+  /* Далее следуют правила представления "кнопок" навигационного меню.
+     Их четыре вида: 1) обыкновенные; 2) выделенные при помощи курсора
+     мыши; 3) соответствующие текущему "магистральному" разделу и
+     предназначенные для его внутренних страниц - для таких "кнопок"
+     назначен класс current; 4) соответствующие текущей
+     странице и поэтому не являющиеся ссылками - этот вид "кнопок"
+     представлен элементами <span>...</span> */
+  #menu a {
+    color: #000;
+    text-decoration: none;
+  }
+  #menu a:link, #menu a:visited {
+    background: #fff0cc;
+    border: solid 2px #fc9;
+  }
+  #menu a:hover, #menu a:active, #menu a.current:link, #menu a.current:visited, #menu span {
+    border-style: solid dotted;
+    border-width: 2px;
+    border-color: #c00;
+  }
+  #menu a.current:link, #menu a.current:visited, #menu span {
+    background: #fff;
+  }
+  #menu span
+  {
+    color: #999;
+  }
+  #menu a.current:hover, #menu a.current:active {
+    background: #fff0cc;
+  }
+
+
+  /* Дальнейшие правила определяют оформление элементов области
+     основного текстового содержания страницы */
+  #text {
+    margin-left: 200px;
+    padding: 20px;
+  }
+  #text h2 {
+    font-size: 120%;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: #369;
+  }
+
+  /* Псевдокласс first-child указывает на первый вложенный
+     в блок #text заголовок <h2>...</h2>. Для таких заголовков
+     верхний вертикальный отступ устанавливается равным нулю.
+     Впрочем, Internet Explorer не понимает этого псевдокласса,
+     так что в браузере от Microsoft первый заголовок области
+     основного текста будет расположен заметно дальше от
+     "шапки", нежели в браузерах, относящихся к рекомендациям
+     W3C более уважительно */
+  #text h2:first-child {
+    margin-top: 0px;
+  }
+
+  /* Абзацы основного текста оформляются в соответствии
+     с традициями русскоязычного текстового набора */
+  #text p {
+    text-align: justify;
+    text-indent: 1.5em;
+    margin: 0px;
+  }
+
+  /* Класс абзацев, предназначенный для новостей сайта */
+  #text p.news {
+    text-align: left;
+    text-indent: 0pt;
+    margin-top: .5em;
+    margin-bottom: .5em;
+  }
+
+  /* Класс, позволяющий выделять полужирным начертанием
+     даты свежих обновлений сайта */
+  .date {
+    font-weight: bold;
+  }
+
+  /* Представление нумерованных и маркированных списков
+     в основном тексте */
+  #text ul, text ol {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  #text ul {
+    list-style-type: square;
+  }
+
+  /* Оформление ссылок в основном тексте */
+  #text a {
+    text-decoration: none;
+  }
+  #text a:link {
+    color: #f60;
+  }
+  #text a:visited
+  {
+    color: #999;
+  }
+  #text a:hover {
+    text-decoration: underline;
+  }
+  #text a:active {
+    color: #f00;
+  }
+
+  /* Правила, определяющие представление "подвала" и содержащихся в нем
+     элементов - абзацев и гипертекстовых ссылок */
+  #footer {
+    width: 100%;
+    clear: both;
+  }
+  #footer p {
+    font-size: 70%; border-top: solid 5px #69c;
+  }
+  #footer a:link, #footer a:visited, #footer a:hover, #footer a:active {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+
+/* Правила, определяющие версию представления данных для карманных
+   компьютеров. Никак не взаимосвязаны с правилами, определенными
+   для экранной версии представления. Перечисленные ниже конструкции
+   очень простые, комментировать здесь почти нечего. Все блоки
+   позиционированы согласно простейшей схеме static и следуют
+   друг за другом в нормальном потоке. Размер шрифта для всего
+   текста страницы задан в пикселях: 16 пикселей для заголовков
+   первого уровня, 14 - для заголовков второго уровня и 12 - для
+   всех остальных элементов */
+@media handheld {
+  html, body {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+  }
+  body {
+    font: 12px Tahoma, Arial, Helvetica, sans-serif;
+    color: #000;
+    background: #fff;
+  }
+  #header, #menucarrier, #text, #footer {
+    padding: 5px;
+  }
+  #header, #footer {
+    background: #ccc;
+  }
+  #header {
+    font-size: 16px;
+    margin: 0px;
+  }
+  #menucarrier {
+    background: #fff0cc;
+    border-top: solid 1px #666;
+    border-bottom: solid 1px #666;
+  }
+  #footer {
+    border-top: solid 1px #666;
+  }
+  h2, p {
+    margin: 5px 0px;
+  }
+  #text h2
+  {
+    font-size: 14px;
+  }
+  ul {
+    list-style: square inside;
+    margin: 5px;
+    padding: 0px;
+  }
+  li {
+    margin: 0px;
+    padding: 0px;
+  }
+  a:link {
+    color: #00f;
+  }
+  a:visited {
+    color: #609;
+  }
+}
+
+/* Правила для печатной версии представления данных.
+   Этот фрагмент листа стилей еще проще. При помощи свойства
+   display со значением none мы скрываем все элементы, не
+   требующиеся в печатной версии - "шапку", блок навигации
+   и "подвал". Остается только область основного текста.
+   Используем рубленый шрифт кегля 16 пунктов для заголовков,
+   антикву кегля 12 пунктов для всего остального. Всему
+   тексту, включая гиперссылки, назначаем черный цвет. */
+@media print {
+  body {
+    color: #000;
+    font: 12pt "Times New Roman", Times, serif;
+  }
+  #header, #menucarrier, #footer {
+    display: none;
+  }
+  #text h2 {
+    font: 16pt Arial, Helvetica, sans-serif;
+  }
+  #text a {
+    color: #000;
+    text-decoration: none;
+  }
+}
