@@ -42,46 +42,11 @@
 <p id="title1">Меню</p>
 <div id="menu">
 <br>
-<!--#if expr="(v('DOCUMENT_URI') = '/index.html')"-->
-<p><span>Главная</span></p>
-<!--#else -->
 <p><a href="/">Главная</a></p>
-<!--#endif -->
-
-<!--#if expr="(v('DOCUMENT_URI') = '/scripts-js/index.html')" -->
-<p><span>Скрипты JS</span></p>
-<!--#elif expr="(v('DOCUMENT_URI') =~ /scripts-js/)" --> 
-<p><a href="/scripts-js" class="current">Скрипты JS</a></p>
-<!--#else -->
 <p><a href="/scripts-js">Скрипты JS</a></p>
-<!--#endif -->
-
-<!--#if expr="(v('DOCUMENT_URI') = '/scripts-py/index.html')" -->
-<p><span>Скрипты Python</span></p>
-<!--#elif expr="(v('DOCUMENT_URI') =~ /scripts-py/)" -->
-<p><a href="/scripts-py" class="current">Скрипты Python</a></p>
-<!--#else -->
 <p><a href="/scripts-py">Скрипты Python</a></p>
-<!--#endif -->
-
-<!--#if expr="(v('DOCUMENT_URI') = '/scripts-pl/index.html')" -->
-<p><span>Скрипты Perl</span></p>
-<!--#elif expr="(v('DOCUMENT_URI') =~ /scripts-pl/)" -->
-<p><a href="/scripts-pl" class="current">Скрипты Perl</a></p>
-<!--#else -->
 <p><a href="/scripts-pl">Скрипты Perl</a></p>
-<!--#endif -->
-
-<!--#if expr="(v('DOCUMENT_URI') = '/scripts-php/index.html')" -->
-<p><span>Скрипты PHP</span></p>
-<!--#elif expr="(v('DOCUMENT_URI') =~ /scripts-php/)" -->
-<p><a href="/scripts-php" class="current">Скрипты PHP</a></p>
-<!--#else -->
 <p><a href="/scripts-php">Скрипты PHP</a></p>
-<!--#endif -->
-
-<!-- <p><a href="/about">О сайте</a></p>
-<p><a href="/connect">Контакты</a></p> -->
 <p><a href="/map">Карта сайта</a></p>
 
 </div> <!-- menu -->
